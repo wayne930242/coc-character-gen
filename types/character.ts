@@ -26,11 +26,33 @@ export interface GameModule {
 
 export interface CharacterIntro {
   name: string;
-  occupation: string;
+  occupation: Occupation;
   age: number;
   birthplace: string;
   pronoun: string;
   residence: string;
+}
+
+export interface Occupation {
+  name: string;
+  description: string;
+  crRange: [number, number];
+  skills: SkillCombination[] | string;
+  attributes: AttributeCombinationAlternatives[];
+}
+
+export interface SkillCombination {
+  skillKeys: string[];
+  totalChoices?: number;
+}
+
+export interface AttributeCombinationAlternatives {
+  attributeCombination: AttributeCombination[];
+}
+
+export interface AttributeCombination {
+  attribute: string;
+  multiplier: number;
 }
 
 export interface PlayerInfo {
